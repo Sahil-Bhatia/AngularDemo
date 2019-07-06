@@ -1,0 +1,93 @@
+
+
+<!--
+Employee Id is {{empId}} <br/>
+Employee Name is {{empName}} <br/>Component to html-->
+<!--Employee Salary is {{empSalary}} <br/>-->
+<!--{{addEmployee()}}--><!--Component to html-->
+
+<!--  Adding property value   -->
+
+<!--
+<table>
+        <tr>
+            <td>Employee Id</td>
+            <td><input type="text"  [value]="empId"/></td>
+        </tr>
+        <tr>
+            <td>Employee Name</td>
+            <td><input type="text" [value]="empName"/></td>
+        </tr>
+        <tr>
+            <td>Employee Salary</td>
+            <td><input type="text" [value]="empSalary"/></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Add Data" (click)="addEmployee()"/> </td>
+        </tr>
+</table>
+
+-->
+
+
+<!-- Event handler from html to component  
+<input type="button" value="Add Data" (click)="addEmployee()"/>  -->
+<h2>Add Employee</h2>
+<!-- Two Way Binding-->
+<table>
+        <tr>
+            <td>Employee Id</td>
+            <td><input type="text"  [(ngModel)]="empId"/></td>
+        </tr>
+        <tr>
+            <td>Employee Name</td>
+            <td><input type="text" [(ngModel)]="empName"/></td>
+        </tr>
+        <tr>
+            <td>Employee Salary</td>
+            <td><input type="text" [(ngModel)]="empSalary"/></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Add Data" (click)="addEmployee()"/> </td>
+        </tr>
+</table>
+
+<br/>
+<h2>Displaying Data</h2>
+<table border="2">
+    <tr>
+        <th><a href="#" (click)="sortId()">Employee Id</a></th>
+        <th><a href="#" (click)="sortName()">Employee Name</a></th>
+        <th><a href="#" (click)="sortSalary()">Employee Salary</a></th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let data of empData; let i=index">
+        <td>{{data.empId}}</td>
+        <td>{{data.empName}}</td>
+        <td>{{data.empSalary}}</td>
+
+        <td><input type="button" value="Delete" (click)="deleteEmployee(i)"/></td>
+        <td><input type="button" value="Update" (click)="updateEmployee(data)"/></td>
+   
+    </tr>
+
+</table>    <br/><h2>Update Employee</h2>
+<!-- Two Way Binding-->
+<table>
+        <tr>
+            <td>Employee Id</td>
+            <td><label>{{empId_up}}</label></td>
+        </tr>
+        <tr>
+            <td>Employee Name</td>
+            <td><input type="text" [(ngModel)]="empName_up"/></td>
+        </tr>
+        <tr>
+            <td>Employee Salary</td>
+            <td><input type="text" [(ngModel)]="empSalary_up"/></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Update Data" (click)="updateEmployeeData({empId_up:empId_up,empName_up:empName_up,empSalary_up:empSalary_up})"/> </td>
+        </tr>
+</table>
