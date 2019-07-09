@@ -1,0 +1,25 @@
+<h2>Add Employee</h2>
+<!-- Two Way Binding-->
+<table>
+        <tr>
+            <td>Employee Id</td>
+            <td><input type="text" id="add_id" [(ngModel)]="empId"/></td>
+        </tr>
+        <tr>
+            <td>Employee Name</td>
+            <td><input type="text" id="add_name" [(ngModel)]="empName"/></td>
+        </tr>
+        <tr>
+            <td>Employee Salary</td>
+            <td><input type="text" id="add_salary" [(ngModel)]="empSalary"/></td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td><input type="text" id="add_dept" [(ngModel)]="empDept"/></td>
+        </tr>
+       
+        <tr>
+            <td><input type="button" value="Add Data" (click)="addEmployee()" /> </td>
+        </tr>
+</table>
+<show-comp [empId]="empId" [empName]="empName" [empSalary]="empSalary" [empDepartment]="empDept" [status]="status"></show-comp>
