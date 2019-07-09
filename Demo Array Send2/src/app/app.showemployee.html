@@ -1,0 +1,21 @@
+
+<h2>Displaying Data</h2>
+<table border="2">
+    <tr>
+        <th><a href="#" (click)="sortId()">Employee Id</a></th>
+        <th><a href="#" (click)="sortName()">Employee Name</a></th>
+        <th><a href="#" (click)="sortSalary()">Employee Salary</a></th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let data of empData; let i=index">
+        <td>{{data.empId}}</td>
+        <td>{{data.empName}}</td>
+        <td>{{data.empSalary}}</td>
+
+        <td><input type="button" value="Delete" (click)="deleteEmployee(i)"/></td>
+        <td><input type="button" value="Update" (click)="updateEmployee(data)"/></td>
+   
+    </tr>
+
+</table>
