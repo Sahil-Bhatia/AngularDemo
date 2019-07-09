@@ -1,0 +1,7 @@
+<h2>In Add Employee HTML... </h2>
+Data from AppModuleParent....{{inchild}}
+<br>
+<input type="button" value="Child" (click)="callingParent()"/>
+<show-comp [empDept_child]="empDept" (notify2)=getDataFromChild($event)></show-comp><br>
+
+Data from Child...{{message}}
