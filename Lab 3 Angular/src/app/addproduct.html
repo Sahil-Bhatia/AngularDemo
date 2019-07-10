@@ -1,0 +1,92 @@
+<h2>Add Product</h2>
+<form #prodForm=ngForm (ngSubmit)="addProduct()">
+    <table>
+        <tr>
+            <td>Product Id</td>
+            <td><input type="number" name="id" id="pid"
+                 [(ngModel)]="prodId" #idcontrol="ngModel" autocomplete="off" required/>
+            </td>
+            <span *ngIf="idcontrol.touched && idcontrol.invalid">
+                ID Should be Filled
+            </span>
+        </tr>
+        <tr>
+            <td>Product Name</td>
+            <td><input type="text" id="pname" name="name" [(ngModel)]="prodName" 
+                #namecontrol="ngModel" autocomplete="off" required /></td>
+                <span *ngIf="namecontrol.touched && namecontrol.invalid">
+                       Name Should be Filled
+               </span>
+        </tr>
+        <tr>
+            <td>Product Cost</td>
+            <td><input type="number" id="pcost" name="cost" [(ngModel)]="prodCost"
+                 #costcontrol="ngModel" autocomplete="off" required/></td>
+                 <span *ngIf="costcontrol.touched && costcontrol.invalid">
+                        Cost Should be Filled
+                </span>
+        </tr>
+        <tr>
+            <td>Product Online</td>
+            <td><input type="radio" name="online" id="ponline" value="Yes" [(ngModel)]="prodOnline"
+                #onlinecontrol="ngModel" required/>Yes
+            </td>
+            <td><input type="radio" name="online" id="ponline" value="No" [(ngModel)]="prodOnline"
+                #onlinecontrol="ngModel" required/>No
+            </td>
+            <span *ngIf="onlinecontrol.touched && onlinecontrol.invalid">
+                Select Product Online Yes/No
+            </span>
+        </tr>
+        <tr>
+            <td>Product Category</td>
+            <td><select name="category" id="pcategory" value="select" [(ngModel)]="prodCategory" #categorycontrol="ngModel" required>
+             
+                <option value="grocery">Grocery</option>
+                <option value="mobile">Mobile</option>
+                <option value="electronic">Electronic</option>
+                <option value="cloth">Cloth</option>
+            </select></td>
+            <span *ngIf="categorycontrol.touched && categorycontrol.invalid">
+                    Select Product Category
+                </span>
+        </tr>
+        <tr>
+                <td>Available in Store</td>
+                <td>
+                    <input type="checkbox" name="store1" value="Big Bazar" required>Big Bazar
+                    <input type="checkbox" name="store2" value="DMart" >DMart<br>
+                    <input type="checkbox" name="store3" value="Reliance">Reliance
+                    <input type="checkbox" name="store4" value="Mega Store">Mega Store<br>
+                </td>
+                <span *ngIf="categorycontrol.touched && categorycontrol.invalid">
+                        Select Stores
+                    </span>
+               
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="Add Product" [disabled]="prodForm.invalid"></td>
+            </tr>
+    </table>
+</form>
+
+<hr>
+<table>
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Cost</th>
+        <th>Product Online</th>
+        <th>Product Category</th>
+        <th>Available in Store</th>
+    </tr>
+    <tr *ngFor="let p of prodAll">
+        <td>{{p.prodId}}</td>
+        <td>{{p.prodName}}</td>
+        <td>{{p.prodCost}}</td>
+        <td>{{p.prodOnline}}</td>
+        <td>{{p.prodCategory}}</td>
+        <td>{{p.prodStores}}</td>
+    </tr>
+</table>
